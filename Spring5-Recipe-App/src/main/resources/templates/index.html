@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Welcome to Recipes Page of Food</title>
+<meta charset="UTF-8" />
+<title>Welcome to Recipes Page of Food</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+	crossorigin="anonymous"></script>
+
 </head>
 <body>
-<h1>My Recipes</h1>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Description</th>
-        <th>Directions</th>
-    </tr>
-    <tr th:each="recipe : ${recipes}">
-        <td th:text="${recipe.id}"></td>
-        <td th:text="${recipe.description}"></td>
-        <td th:text="${recipe.directions}"></td>
-    </tr>
-</table>
+	<h1>My Recipes</h1>
+	<table class="table">
+	  <thead class="thead-dark">
+	    <tr>
+	      <th scope="col">ID</th>
+	      <th scope="col">Description</th>
+	      <th scope="col">Directions</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr th:each="recipe : ${recipes}">
+	      <td th:text="${recipe.id}"></td>
+	      <td th:text=${recipe.description}></td>
+	      <td th:text="${recipe.directions}"></td>
+	    </tr>
+	  </tbody>
+	</table>
 </body>
 </html>
