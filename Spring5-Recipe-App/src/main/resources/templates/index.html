@@ -10,10 +10,12 @@
     <tr>
         <th>ID</th>
         <th>Description</th>
+        <th>Directions</th>
     </tr>
     <tr th:each="recipe : ${recipes}">
         <td th:text="${recipe.id}"></td>
         <td th:text="${recipe.description}"></td>
+        <td th:text="${recipe.directions}"></td>
     </tr>
 </table>
 </body>
