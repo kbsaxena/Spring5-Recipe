@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
@@ -19,6 +21,9 @@ import com.recipe.repositories.CategoryRepository;
 import com.recipe.repositories.RecipeRepository;
 import com.recipe.repositories.UnitOfMeasureRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Component
 public class RecipeBootStrap implements ApplicationListener<ContextRefreshedEvent>{
 	
@@ -34,7 +39,9 @@ public class RecipeBootStrap implements ApplicationListener<ContextRefreshedEven
 	}
 	
 	@Override
+	@Transactional //Added, because sometime we may encounter issues due to in and out of recipes in repositories
 	public void onApplicationEvent(ContextRefreshedEvent event) {
+		log.debug("Loading Recipes...");
 		recipeRepository.saveAll(getRecipies());
 	}
 	
