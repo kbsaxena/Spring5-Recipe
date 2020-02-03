@@ -113,7 +113,7 @@ public class RecipeBootStrap implements ApplicationListener<ContextRefreshedEven
         Recipe guacRecipe = new Recipe();
         guacRecipe.setDescription("Perfect Guacamole");
         guacRecipe.setPrepTime(10);
-        guacRecipe.setCookTime(0);
+        guacRecipe.setCookTime(9);
         guacRecipe.setDifficulty(Difficulty.EASY);
         guacRecipe.setDirections("1 Cut avocado, remove flesh: Cut the avocados in half. Remove seed. Score the inside of the avocado with a blunt knife and scoop out the flesh with a spoon" +
                 "\n" +
@@ -138,6 +138,10 @@ public class RecipeBootStrap implements ApplicationListener<ContextRefreshedEven
                 "Read more: http://www.simplyrecipes.com/recipes/perfect_guacamole/#ixzz4jvoun5ws");
         //guacNotes.setRecipe(guacRecipe); //No Need now as we are using Setter for bidirectional relationship
         guacRecipe.setNotes(guacNotes);
+        
+        guacRecipe.setServings(4);
+        guacRecipe.setUrl("https://www.simplyrecipes.com/recipes/perfect_guacamole/");
+        guacRecipe.setSource("Simply Recipes");
 
         /* Added method to do bidirectional mapping..Hence removing the code
         guacRecipe.getIngredients().add(new Ingredient("ripe avocados", new BigDecimal(2), eachUom, guacRecipe));
@@ -196,6 +200,9 @@ public class RecipeBootStrap implements ApplicationListener<ContextRefreshedEven
         tacoNotes.setRecipe(tacosRecipe);
         tacosRecipe.setNotes(tacoNotes);
 
+        tacosRecipe.setServings(4);
+        tacosRecipe.setUrl("https://www.simplyrecipes.com/recipes/spicy_grilled_chicken_tacos/");
+        tacosRecipe.setSource("Simply Recipes");
 
         tacosRecipe.getIngredients().add(new Ingredient("Ancho Chili Powder", new BigDecimal(2), tableSpoonUom, tacosRecipe));
         tacosRecipe.getIngredients().add(new Ingredient("Dried Oregano", new BigDecimal(1), teapoonUom, tacosRecipe));

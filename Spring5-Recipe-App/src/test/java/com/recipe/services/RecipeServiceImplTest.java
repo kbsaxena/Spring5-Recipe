@@ -1,8 +1,10 @@
 package com.recipe.services;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import org.junit.Before;
@@ -42,6 +44,22 @@ public class RecipeServiceImplTest {
     
     	Mockito.verify(recipeRepository, Mockito.times(1)).findAll();
     	// Mockito.verify(recipeService, Mockito.times(2));  //NotAMockException... Works only with Mocks
+    }
+    
+    @Test
+    public void getRecipesById() {
+    	Recipe recipe = new Recipe();
+    	recipe.setId(1L);
+
+		Mockito.when(recipeRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(recipe));
+    	
+    	Recipe recipeResponse = recipeService.findById(1L);
+    	
+    	assertNotNull(recipeResponse);
+    	assertEquals(1L, recipeResponse.getId());
+    
+    	Mockito.verify(recipeRepository, Mockito.times(1)).findById(Mockito.anyLong());
+    	Mockito.verify(recipeRepository, Mockito.never()).findAll();
     }
     
     
