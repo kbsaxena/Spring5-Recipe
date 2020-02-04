@@ -26,6 +26,7 @@ public class RecipeServiceImpl implements RecipeService {
 	
 	public RecipeServiceImpl(RecipeRepository recipeRepository, RecipeCommandToRecipe recipeCommandToRecipe,
 			RecipeToRecipeCommand recipeToRecipeCommand) {
+		super();
 		this.recipeRepository = recipeRepository;
 		this.recipeCommandToRecipe = recipeCommandToRecipe;
 		this.recipeToRecipeCommand = recipeToRecipeCommand;

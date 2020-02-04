@@ -12,6 +12,7 @@ import lombok.Setter;
 public class IngredientCommand {
 	
 	private Long id;
+	private Long recipeId;
 	private UnitOfMeasureCommand uom;
 	private BigDecimal amount;
 	private String description;
