@@ -84,6 +84,9 @@ public class IngredientController {
 
         //make sure we have a good id value
         RecipeCommand recipeCommand = recipeService.findCommandById(Long.valueOf(recipeId));
+        if(recipeCommand == null) {
+        	log.error("Recipe ID is empty");
+        }
         //todo raise exception if null
 
         //need to return back parent id for hidden form property
@@ -97,5 +100,16 @@ public class IngredientController {
         model.addAttribute("uomList",  unitOfMeasureService.listAllUoms());
 
         return "recipe/ingredient/ingredientNew";
+    }
+	
+	@GetMapping
+    @RequestMapping("recipe/{recipeId}/ingredient/{id}/delete")
+    public String deleteIngredient(@PathVariable String recipeId,
+                                   @PathVariable String id){
+
+        log.debug("deleting ingredient id:" + id);
+        ingredientService.deleteById(Long.valueOf(recipeId), Long.valueOf(id));
+
+        return "redirect:/recipe/" + recipeId + "/ingredients";
     }
 }

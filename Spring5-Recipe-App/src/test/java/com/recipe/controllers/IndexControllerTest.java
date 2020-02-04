@@ -41,7 +41,8 @@ public class IndexControllerTest {
         controller = new IndexController(recipeService);
     }
 
-    @Test
+    @SuppressWarnings("unchecked")
+	@Test
     public void getIndexPage() throws Exception {
 
         //given
