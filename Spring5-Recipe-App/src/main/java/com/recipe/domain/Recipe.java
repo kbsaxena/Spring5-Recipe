@@ -43,7 +43,7 @@ public class Recipe {
     private Set<Ingredient> ingredients  = new HashSet<>();
     
     @Lob
-    private Byte[] images;
+    private Byte[] image;
     
     @Enumerated(value = EnumType.STRING)  //EnumType.ORDINAL =>stores =>1,2,3 in DB (integer)
     private Difficulty difficulty;
